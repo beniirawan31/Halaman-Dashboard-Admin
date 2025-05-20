@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\SessionController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +15,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+
+
+Route::get('/',[AdminController::class, 'index']);
+
+//sesi
+Route::get('/login', [SessionController::class, 'index'])->name('login');
+Route::post('/login', [SessionController::class, 'loginProcess'])->name('login.process');
+Route::get('/register', [SessionController::class, 'register'])->name('register');
+Route::post('/register', [SessionController::class, 'registerProcess'])->name('register.process');
+Route::post('/logout', [SessionController::class, 'logout'])->name('logout');
