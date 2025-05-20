@@ -1,21 +1,71 @@
-@extends('layouts.app') @section('content')
+@extends('layouts.app')
+
+@section('content')
     <div class="flex h-screen">
         <!-- Sidebar -->
         <aside class="w-64 bg-gradient-to-b from-[#640D5F] to-[#D91656] text-white p-6 space-y-6 shadow-lg">
             <div class="text-2xl font-bold mb-8">Admin Panel</div>
             <nav class="flex flex-col space-y-4 text-sm font-medium">
+                <!-- Dashboard -->
                 <a href="#"
-                    class="hover:bg-[#FFB200] hover:text-black p-2 rounded-md transition-all duration-300 flex items-center gap-2">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M13 5v6h6" />
-                    </svg> Dashboard </a>
-                <a href="#" class="hover:bg-[#FFB200] hover:text-black p-2 rounded-md transition-all">Users</a>
-                <a href="#" class="hover:bg-[#FFB200] hover:text-black p-2 rounded-md transition-all">Events</a>
-                <a href="#" class="hover:bg-[#FFB200] hover:text-black p-2 rounded-md transition-all">Books</a>
-                <a href="#" class="hover:bg-[#FFB200] hover:text-black p-2 rounded-md transition-all">T-Shirts</a>
-                <a href="#" class="hover:bg-[#FFB200] hover:text-black p-2 rounded-md transition-all">Settings</a>
+                    class="hover:bg-[#FFB200] hover:text-black p-2 rounded-md transition-all duration-300 flex items-center gap-3">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                        <path d="M3 13h18M5 13V6h14v7" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                    Dashboard
+                </a>
+
+                <!-- Users -->
+                <a href="#"
+                    class="hover:bg-[#FFB200] hover:text-black p-2 rounded-md transition-all flex items-center gap-3">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                        <path d="M17 21v-2a4 4 0 00-4-4H7a4 4 0 00-4 4v2M12 11a4 4 0 100-8 4 4 0 000 8z"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                    Users
+                </a>
+
+                <!-- Events -->
+                <a href="#"
+                    class="hover:bg-[#FFB200] hover:text-black p-2 rounded-md transition-all flex items-center gap-3">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                        <path d="M3 8h18M16 2v4M8 2v4m-5 9h18" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                    Events
+                </a>
+
+                <!-- Books -->
+                <a href="#"
+                    class="hover:bg-[#FFB200] hover:text-black p-2 rounded-md transition-all flex items-center gap-3">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                        <path d="M4 19.5A2.5 2.5 0 016.5 17H20M4 4h16v13H6.5A2.5 2.5 0 004 19.5V4z" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                    Books
+                </a>
+
+                <!-- T-Shirts -->
+                <a href="#"
+                    class="hover:bg-[#FFB200] hover:text-black p-2 rounded-md transition-all flex items-center gap-3">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                        <path d="M6 4l6 3 6-3v4l-1 1v11H7V9L6 8V4z" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                    T-Shirts
+                </a>
+
+                <!-- Settings -->
+                <a href="#"
+                    class="hover:bg-[#FFB200] hover:text-black p-2 rounded-md transition-all flex items-center gap-3">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                        <path
+                            d="M12 15a3 3 0 100-6 3 3 0 000 6zm7.94-1.06a9.004 9.004 0 01-1.32 1.9l.71 2.04-2.12 1.23-.71-2.05a8.963 8.963 0 01-3.5 0l-.71 2.05-2.12-1.23.71-2.04a9.004 9.004 0 01-1.32-1.9L3 12l2.04-.71a8.963 8.963 0 010-3.5L3 7l1.23-2.12 2.04.71a9.004 9.004 0 011.9-1.32L12 3l.71 2.04a8.963 8.963 0 013.5 0L17 3l2.12 1.23-.71 2.04a9.004 9.004 0 011.32 1.9L21 12l-2.04.71z"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                    Settings
+                </a>
             </nav>
         </aside>
+
 
         <div class="flex-1 flex flex-col">
             <header class="bg-white shadow p-4 flex justify-between items-center">
@@ -26,11 +76,12 @@
 
                     <!-- Tombol Logout -->
                     <button onclick="confirmLogout()"
-                        class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded transition-all">
+                        class="bg-red-500 hover:bg-red-300 text-white px-4 py-2 rounded transition-all">
                         Logout
                     </button>
                 </div>
             </header>
+
             <main class="p-6 bg-gray-100 flex-1 overflow-y-auto">
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     <div class="bg-white border-l-4 border-[#FFB200] p-6 rounded-xl shadow hover:shadow-xl transition">
@@ -94,80 +145,68 @@
                             class="bg-[#640D5F] hover:bg-[#D91656] text-white font-semibold px-6 py-2 rounded-md transition duration-300">Filter</button>
                     </form>
                     <div class="overflow-x-auto">
-                        <table class="w-full text-left text-sm border border-gray-200 rounded-md">
-                            <thead class="bg-gradient-to-r from-[#EB5B00] to-[#FFB200] text-white">
+                        <table class="min-w-full divide-y divide-gray-200">
+                            <thead class="bg-[#640D5F]">
                                 <tr>
-                                    <th class="p-3">User</th>
-                                    <th class="p-3">Item</th>
-                                    <th class="p-3">Amount</th>
-                                    <th class="p-3">Date</th>
-                                    <th class="p-3 text-center">Action</th>
+                                    <th class="px-4 py-2 text-left text-sm font-bold text-white">No</th>
+                                    <th class="px-4 py-2 text-left text-sm font-bold text-white">Nama Pembeli</th>
+                                    <th class="px-4 py-2 text-left text-sm font-bold text-white">Produk</th>
+                                    <th class="px-4 py-2 text-left text-sm font-bold text-white">Harga Awal</th>
+                                    <th class="px-4 py-2 text-left text-sm font-bold text-white">Diskon</th>
+                                    <th class="px-4 py-2 text-left text-sm font-bold text-white">Total Bayar</th>
+                                    <th class="px-4 py-2 text-left text-sm font-bold text-white">Tanggal</th>
+                                    {{-- <th class="px-4 py-2 text-center text-sm font-bold text-white">Aksi</th> --}}
                                 </tr>
                             </thead>
                             <tbody class="divide-y divide-gray-200">
-                                <tr class="hover:bg-gray-50 transition">
-                                    <td class="p-3 font-medium text-gray-700">Budi</td>
-                                    <td class="p-3">Laravel Training</td>
-                                    <td class="p-3 text-green-600 font-semibold">Rp 500.000</td>
-                                    <td class="p-3">19 Mei 2025</td>
-                                    <td class="p-3 text-center">
-                                        <div class="inline-flex space-x-3 justify-center">
-                                            <button
-                                                class="flex items-center space-x-1 px-3 py-1 rounded-md bg-blue-100 text-blue-700 hover:bg-blue-600 hover:text-white transition duration-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
-                                                title="Edit" aria-label="Edit">
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none"
-                                                    viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                        d="M15.232 5.232l3.536 3.536M9 11l6-6 3 3-6 6H9v-3z" />
-                                                </svg>
-                                                <span>Edit</span>
-                                            </button>
-                                            <button
-                                                class="flex items-center space-x-1 px-3 py-1 rounded-md bg-red-100 text-red-700 hover:bg-red-600 hover:text-white transition duration-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-red-400"
-                                                title="Delete" aria-label="Delete">
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none"
-                                                    viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                        d="M6 18L18 6M6 6l12 12" />
-                                                </svg>
-                                                <span>Delete</span>
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr class="hover:bg-gray-50 transition">
-                                    <td class="p-3 font-medium text-gray-700">Sari</td>
-                                    <td class="p-3">Flutter Book</td>
-                                    <td class="p-3 text-green-600 font-semibold">Rp 250.000</td>
-                                    <td class="p-3">18 Mei 2025</td>
-                                    <td class="p-3 text-center">
-                                        <div class="inline-flex space-x-3 justify-center">
-                                            <button
-                                                class="flex items-center space-x-1 px-3 py-1 rounded-md bg-blue-100 text-blue-700 hover:bg-blue-600 hover:text-white transition duration-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
-                                                title="Edit" aria-label="Edit">
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none"
-                                                    viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                        d="M15.232 5.232l3.536 3.536M9 11l6-6 3 3-6 6H9v-3z" />
-                                                </svg>
-                                                <span>Edit</span>
-                                            </button>
-                                            <button
-                                                class="flex items-center space-x-1 px-3 py-1 rounded-md bg-red-100 text-red-700 hover:bg-red-600 hover:text-white transition duration-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-red-400"
-                                                title="Delete" aria-label="Delete">
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none"
-                                                    viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                        d="M6 18L18 6M6 6l12 12" />
-                                                </svg>
-                                                <span>Delete</span>
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
+                                @foreach ($data as $index => $item)
+                                    <tr class="hover:bg-gray-50 transition">
+                                        <td class="p-3 text-[#640D5F] font-medium">{{ $loop->iteration }}</td>
+                                        <td class="p-3 font-medium text-[#640D5F]">{{ $item->nama }}</td>
+                                        <td class="p-3 text-gray-800">{{ $item->produk }}</td>
+                                        <td class="p-3 text-[#FFB200] font-semibold">Rp
+                                            {{ number_format($item->harga, 0, ',', '.') }}</td>
+                                        <td class="p-3 text-[#EB5B00] font-semibold">{{ $item->diskon }}%</td>
+                                        <td class="p-3 text-[#D91656] font-semibold">
+                                            Rp {{ number_format($item->harga * (1 - $item->diskon / 100), 0, ',', '.') }}
+                                        </td>
+                                        <td class="p-3 text-gray-700">
+                                            {{ \Carbon\Carbon::parse($item->tanggal)->translatedFormat('d F Y') }}
+                                        </td>
+                                        {{-- <td class="p-3 text-center">
+                                            <div class="inline-flex space-x-3 justify-center">
+                                                <button
+                                                    class="flex items-center space-x-1 px-3 py-1 rounded-md bg-[#FFB200] text-white cursor-not-allowed"
+                                                    title="Edit (disabled)" disabled>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5"
+                                                        fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            stroke-width="2"
+                                                            d="M15.232 5.232l3.536 3.536M9 11l6-6 3 3-6 6H9v-3z" />
+                                                    </svg>
+                                                    <span>Edit</span>
+                                                </button>
+                                                <button
+                                                    class="flex items-center space-x-1 px-3 py-1 rounded-md bg-[#D91656] text-white cursor-not-allowed"
+                                                    title="Delete (disabled)" disabled>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5"
+                                                        fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                                                    </svg>
+                                                    <span>Delete</span>
+                                                </button>
+                                            </div>
+                                        </td> --}}
+                                    </tr>
+                                @endforeach
                             </tbody>
                         </table>
+                        <div class="mt-4">
+                            {{ $data->links('vendor.pagination.tailwind') }}
+                        </div>
                     </div>
+
                 </div>
         </div>
         </main>
@@ -245,22 +284,20 @@
 
         // logout
         function confirmLogout() {
-        Swal.fire({
-            title: 'Yakin ingin logout?',
-            text: "Kamu akan keluar dari sesi saat ini.",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#d33',
-            cancelButtonColor: '#3085d6',
-            confirmButtonText: 'Ya, logout',
-            cancelButtonText: 'Batal'
-        }).then((result) => {
-            if (result.isConfirmed) {
-                window.location.href = "{{ route('logout') }}";
-            }
-        })
-    }
+            Swal.fire({
+                title: 'Yakin ingin logout?',
+                text: "Kamu akan keluar dari sesi saat ini.",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#3085d6',
+                confirmButtonText: 'Ya, logout',
+                cancelButtonText: 'Batal'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = "{{ route('logout') }}";
+                }
+            })
+        }
     </script>
-
-    
 @endsection
