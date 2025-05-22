@@ -4,7 +4,9 @@
     <div class="flex h-screen">
         <!-- Sidebar -->
         <aside class="w-64 bg-gradient-to-b from-[#640D5F] to-[#D91656] text-white p-6 space-y-6 shadow-lg">
-            <div class="text-2xl font-bold mb-8">Admin Panel</div>
+            <div class="text-3xl font-extrabold mb-8 tracking-wide">
+                <span class="text-udagold">Dev</span><span style="color: #FFB200;">Store</span>
+            </div>
             <nav class="flex flex-col space-y-4 text-sm font-medium">
                 <!-- Dashboard -->
                 <a href="#"
@@ -69,7 +71,9 @@
 
         <div class="flex-1 flex flex-col">
             <header class="bg-white shadow p-4 flex justify-between items-center">
-                <h1 class="text-xl font-bold text-[#640D5F]">Dashboard</h1>
+                <h1 class="text-3xl font-extrabold mb-4 tracking-wide">
+                    <span style="color: #FFB200;">Dev</span><span class="text-gray-900">Store</span>
+                </h1>
                 <div class="flex items-center gap-4">
                     <span class="text-gray-600">Hello, Admin</span>
                     <img src="https://i.pravatar.cc/40" class="rounded-full w-10 h-10" alt="Avatar" />
