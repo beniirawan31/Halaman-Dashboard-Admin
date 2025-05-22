@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\SessionController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,3 +27,9 @@ Route::post('/login', [SessionController::class, 'loginProcess'])->name('login.p
 Route::get('/register', [SessionController::class, 'register'])->name('register');
 Route::post('/register', [SessionController::class, 'registerProcess'])->name('register.process');
 Route::post('/logout', [SessionController::class, 'logout'])->name('logout');
+
+//user
+Route::get('/users', [UserController::class, 'index'])->name('users.index');
+Route::get('/users/edit/{id}', [UserController::class, 'edit'])->name('users.edit');
+Route::put('/users/update/{id}', [UserController::class, 'update'])->name('users.update');
+Route::delete('/users/delete/{id}', [UserController::class, 'destroy'])->name('users.destroy');
