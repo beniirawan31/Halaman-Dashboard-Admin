@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\EventController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -33,3 +34,14 @@ Route::get('/users', [UserController::class, 'index'])->name('users.index');
 Route::get('/users/edit/{id}', [UserController::class, 'edit'])->name('users.edit');
 Route::put('/users/update/{id}', [UserController::class, 'update'])->name('users.update');
 Route::delete('/users/delete/{id}', [UserController::class, 'destroy'])->name('users.destroy');
+
+
+//event
+Route::prefix('events')->group(function () {
+    Route::get('/', [EventController::class, 'index'])->name('events.index');
+    Route::get('/edit/{id}', [EventController::class, 'edit'])->name('events.edit');
+    Route::put('/update/{id}', [EventController::class, 'update'])->name('events.update');
+    Route::get('/create', [EventController::class, 'create'])->name('events.create');
+    Route::post('/store', [EventController::class, 'store'])->name('events.store');
+    Route::delete('/destroy/{id}', [EventController::class, 'destroy'])->name('events.destroy');
+});

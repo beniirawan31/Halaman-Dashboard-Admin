@@ -23,7 +23,7 @@
         </a>
 
         <!-- Events -->
-        <a href="#"
+        <a href="{{route('events.index')}}"
             class="hover:bg-[#FFB200] hover:text-black p-2 rounded-md transition-all flex items-center gap-3">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
                 <path d="M3 8h18M16 2v4M8 2v4m-5 9h18" stroke-linecap="round" stroke-linejoin="round" />
