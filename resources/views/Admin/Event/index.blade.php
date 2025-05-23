@@ -74,13 +74,12 @@
                                             <span>Edit</span>
                                         </a>
 
-                                        <!-- Tombol Hapus -->
-                                        <form action="{{ route('events.destroy', $event->id) }}" method="POST"
-                                            onsubmit="return confirm('Yakin ingin menghapus event ini?');"
+                                        <form id="delete-form-{{ $event->id }}"
+                                            action="{{ route('events.destroy', $event->id) }}" method="POST"
                                             class="inline-block">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit"
+                                            <button type="button" onclick="confirmDelete({{ $event->id }})"
                                                 class="flex items-center space-x-2 px-4 py-2 rounded-md bg-[#D91656] text-white hover:bg-[#b51344] transition text-base font-semibold">
                                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none"
                                                     viewBox="0 0 24 24" stroke="currentColor">
@@ -106,4 +105,23 @@
             </div>
         </main>
     </div>
+
+    <script>
+        function confirmDelete(id) {
+            Swal.fire({
+                title: 'Apakah Anda yakin?',
+                text: "Data event akan dihapus secara permanen.",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#3085d6',
+                confirmButtonText: 'Ya, hapus!',
+                cancelButtonText: 'Batal'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    document.getElementById('delete-form-' + id).submit();
+                }
+            });
+        }
+    </script>
 @endsection
