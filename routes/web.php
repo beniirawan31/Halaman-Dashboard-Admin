@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\BukuController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\UserController;
@@ -19,8 +20,7 @@ use Illuminate\Support\Facades\Route;
 
 
 
-
-Route::get('/',[AdminController::class, 'index']);
+Route::get('/', [AdminController::class, 'index'])->name('dashboard');
 
 //sesi
 Route::get('/login', [SessionController::class, 'index'])->name('login');
@@ -44,4 +44,13 @@ Route::prefix('events')->group(function () {
     Route::get('/create', [EventController::class, 'create'])->name('events.create');
     Route::post('/store', [EventController::class, 'store'])->name('events.store');
     Route::delete('/destroy/{id}', [EventController::class, 'destroy'])->name('events.destroy');
+});
+
+Route::prefix('bukus')->group(function () {
+    Route::get('/', [BukuController::class, 'index'])->name('bukus.index');
+    Route::get('/edit/{id}', [BukuController::class, 'edit'])->name('bukus.edit');
+    Route::put('/update/{id}', [BukuController::class, 'update'])->name('bukus.update');
+    Route::get('/create', [BukuController::class, 'create'])->name('bukus.create');
+    Route::post('/store', [BukuController::class, 'store'])->name('bukus.store');
+    Route::delete('/destroy/{id}', [BukuController::class, 'destroy'])->name('bukus.destroy');
 });

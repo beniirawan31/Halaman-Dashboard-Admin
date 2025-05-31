@@ -6,12 +6,38 @@
         @include('layouts.nav')
 
         <main class="flex-1 overflow-auto p-6 max-w-full ml-6">
-            <div class="flex justify-between items-center mb-6">
-                <h2 class="text-3xl font-semibold text-[#640D5F]">Daftar Event</h2>
-                <a href="{{ route('events.create') }}" class="bg-[#640D5F] text-white px-4 py-2 rounded hover:bg-[#510a4d]">
-                    + Tambah Event
-                </a>
+            <div class="bg-white p-4 rounded-xl shadow mb-4">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-3xl font-semibold text-[#640D5F]">Daftar Event</h2>
+                </div>
+            
+                <!-- Filter Form + Tambah Button -->
+                <form action="" method="GET" class="flex flex-wrap items-end justify-between gap-4">
+                    <div class="flex gap-6 flex-wrap">
+                        <div class="flex flex-col">
+                            <label for="judul" class="mb-1 text-sm font-medium text-gray-700">Judul</label>
+                            <input type="text" name="judul" id="judul" placeholder="Cari judul..."
+                                class="w-48 rounded-md border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#640D5F]" />
+                        </div>
+                        <div class="flex flex-col">
+                            <label for="harga" class="mb-1 text-sm font-medium text-gray-700">Harga</label>
+                            <input type="text" name="harga" id="harga" placeholder="Cari harga..."
+                                class="w-48 rounded-md border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#640D5F]" />
+                        </div>
+                    </div>
+            
+                    <!-- Tombol Tambah Event -->
+                    <a href="{{ route('events.create') }}"
+                        class="inline-flex items-center gap-2 bg-[#640D5F] text-white px-4 py-2 rounded hover:bg-[#510a4d] transition">
+                        <svg class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
+                                d="M12 7.757v8.486M7.757 12h8.486M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                        </svg>
+                        Tambah Event
+                    </a>
+                </form>
             </div>
+            
 
             <div class="bg-white rounded shadow overflow-auto">
                 <table class="w-full table-auto border-collapse text-left">
@@ -66,14 +92,16 @@
                                         <!-- Tombol Edit -->
                                         <a href="{{ route('events.edit', $event->id) }}"
                                             class="flex items-center space-x-2 px-4 py-2 rounded-md bg-[#FFB200] text-white hover:bg-[#e0a500] transition text-base font-semibold">
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none"
-                                                viewBox="0 0 24 24" stroke="currentColor">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                    d="M15.232 5.232l3.536 3.536M9 11l6-6 3 3-6 6H9v-3z" />
+                                            <svg class="w-[29px] h-[29px] text-white" aria-hidden="true"
+                                                xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                fill="none" viewBox="0 0 24 24">
+                                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                                    stroke-width="2"
+                                                    d="m14.304 4.844 2.852 2.852M7 7H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1v-4.5m2.409-9.91a2.017 2.017 0 0 1 0 2.853l-6.844 6.844L8 14l.713-3.565 6.844-6.844a2.015 2.015 0 0 1 2.852 0Z" />
                                             </svg>
-                                            <span>Edit</span>
                                         </a>
 
+                                        <!-- Tombol Hapus -->
                                         <form id="delete-form-{{ $event->id }}"
                                             action="{{ route('events.destroy', $event->id) }}" method="POST"
                                             class="inline-block">
@@ -81,16 +109,18 @@
                                             @method('DELETE')
                                             <button type="button" onclick="confirmDelete({{ $event->id }})"
                                                 class="flex items-center space-x-2 px-4 py-2 rounded-md bg-[#D91656] text-white hover:bg-[#b51344] transition text-base font-semibold">
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none"
-                                                    viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                        d="M6 18L18 6M6 6l12 12" />
+                                                <svg class="w-[29px] h-[29px] text-white"
+                                                    aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24"
+                                                    height="24" fill="none" viewBox="0 0 24 24">
+                                                    <path stroke="currentColor" stroke-linecap="round"
+                                                        stroke-linejoin="round" stroke-width="1.8"
+                                                        d="M5 7h14m-9 3v8m4-8v8M10 3h4a1 1 0 0 1 1 1v3H9V4a1 1 0 0 1 1-1ZM6 7h12v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7Z" />
                                                 </svg>
-                                                <span>Hapus</span>
                                             </button>
                                         </form>
                                     </div>
                                 </td>
+
                             </tr>
                         @empty
                             <tr>

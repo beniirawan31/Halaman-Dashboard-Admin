@@ -6,7 +6,7 @@
     @include('layouts.nav')
 
     <main class="flex-1 overflow-auto p-6 max-w-full ml-6">
-        <h2 class="text-3xl font-bold text-[#640D5F] mb-8 text-center">Buat Event Baru</h2>
+        <h2 class="text-3xl font-bold text-[#640D5F] mb-8">Tambahkan Event Baru</h2>
     
     <form action="{{ route('events.store') }}" method="POST" enctype="multipart/form-data" class="space-y-6">
         @csrf
