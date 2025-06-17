@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BukuController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\SessionController;
+use App\Http\Controllers\TransaksiController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -54,3 +55,9 @@ Route::prefix('bukus')->group(function () {
     Route::post('/store', [BukuController::class, 'store'])->name('bukus.store');
     Route::delete('/destroy/{id}', [BukuController::class, 'destroy'])->name('bukus.destroy');
 });
+
+
+
+Route::get('/checkout', [TransaksiController::class, 'create'])->name('checkout.create');
+Route::post('/checkout/store', [TransaksiController::class, 'store'])->name('checkout.store');
+Route::get('/checkout/print', [TransaksiController::class, 'print'])->name('checkout.print');
